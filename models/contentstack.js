@@ -12,7 +12,6 @@ var promise =
         .toJSON()
         .find()
         .spread(function success(result) {
-          console.log(result,"-------------result")
             return resolve(result[0])
         }, function error(error) {
             next(error)
@@ -26,7 +25,6 @@ var promise =
             .then(function(values) 
             {   
                 var data
-                console.log( values[0].header ,"______________result")
                 res.render(viewName, {
                     data : values
                 })
