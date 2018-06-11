@@ -11,14 +11,14 @@ var app = express();
 
 var config = require('./configuration/constants')
 var nunjucks = require('nunjucks')
-var env = process.env.NODE_ENV 
-var mode, port
-if( (env != "null") && ((env == "production") || (env == "staging")) ){
-   mode = require('./configuration/' + env)
-   port = mode.server.port
-}else{
-    port = 5000
-}
+// var env = process.env.NODE_ENV 
+// var mode, port
+// if( (env != "null") && ((env == "production") || (env == "staging")) ){
+//    mode = require('./configuration/' + env)
+//    port = mode.server.port
+// }else{
+//     port = 5000
+// }
 
 app.set('view engine', 'html')
 nunjucks.configure('views', {
