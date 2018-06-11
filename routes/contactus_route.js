@@ -7,11 +7,11 @@ var config = require('../configuration/constants')
 //contactus route
 router.get('/', function(req, res, next){
     
-    var getHeader = promise.promiseFunction(config.headerUrl())
-    var getBody = promise.promiseFunction(config.contactUsUrl())
-    var getFooter = promise.promiseFunction(config.footerUrl())
-    var urlArray = [getHeader, getBody, getFooter]
-    promise.promiseAll(urlArray, 'contactus', res)
+    var getHeader = promise.promiseFunction('header')
+    var getBody = promise.promiseFunction('contact_us')
+    var getFooter = promise.promiseFunction('footer')
+    var csArray = [getHeader, getBody, getFooter]
+    promise.promiseAll(csArray, 'contactus', res)
 })
 
 module.exports = router

@@ -7,11 +7,12 @@ var config = require('../configuration/constants')
 //home route
 router.get('/', function(req, res){
     
-    var getHeader = promise.promiseFunction(config.headerUrl())
-    var getBody = promise.promiseFunction(config.homeUrl())
-    var getFooter = promise.promiseFunction(config.footerUrl())
-    var urlArray = [getHeader, getBody, getFooter]
-    promise.promiseAll(urlArray, 'home', res)
+    var getHeader = promise.promiseFunction('header')
+    var getBody = promise.promiseFunction('home')
+    var getFooter = promise.promiseFunction('footer')
+    var csArray = [getHeader, getBody, getFooter]
+    promise.promiseAll(csArray, 'home', res)
+
     
 }
 )
