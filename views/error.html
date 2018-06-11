@@ -1,0 +1,10 @@
+
+{% extends "./layout/parent.html" %}
+{# h1= message
+  h2= error.status
+  pre #{error.stack} #}
+
+{% block main_body %}
+<h1>{{message}}</h1>
+<h2>{{error.status}}</h2>
+{%endblock%}
