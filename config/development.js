@@ -1,6 +1,6 @@
 var stage = {
     server: {   
-        port : '3000'
+        port : '6000'
     }  
 }
 module.exports = stage

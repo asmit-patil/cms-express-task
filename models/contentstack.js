@@ -1,39 +1,16 @@
 var Contentstack = require('contentstack')
-var config = require('../configuration/constants')
+var config = require('../config/constants')
 const Stack = Contentstack.Stack(config.apikey, config.accesstoken, config.enviournment);
 
-var promise =
-{
 
-    promiseFunction: function (ct){
-    
-        return new Promise(function(resolve, reject) {
-        var Query = Stack.ContentType(ct).Query()
+module.exports.model = function (contentype, callback) {
+var Query = Stack.ContentType(contentype).Query()
         .toJSON()
         .find()
         .spread(function success(result) {
-            return resolve(result[0])
+            console.log(result[0])
+            callback(result)
         }, function error(error) {
             next(error)
         })
-    
-    })
-    },
-
-    promiseAll : function(csArray, viewName, res){
-        Promise.all(csArray)
-            .then(function(values) 
-            {   
-                var data
-                res.render(viewName, {
-                    data : values
-                })
-            })
-            .catch(function(err){
-                console.log(err)
-            })   
-        }
-        
-
 }
-module.exports = promise

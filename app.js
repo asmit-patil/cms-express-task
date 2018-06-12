@@ -1,25 +1,20 @@
 var createError = require('http-errors');
 var express = require('express');
-//var path = require('path');
-// var cookieParser = require('cookie-parser');
+var path = require('path');
+var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-
 var app = express();
-
-var config = require('./configuration/constants')
 var nunjucks = require('nunjucks')
 // var env = process.env.NODE_ENV 
 // var mode, port
-// if( (env != "null") && ((env == "production") || (env == "staging")) ){
-//    mode = require('./configuration/' + env)
+// if( (env != "null") && ((env == "production") || (env == "development")) ){
+//    mode = require('./config/' + env)
 //    port = mode.server.port
 // }else{
 //     port = 5000
 // }
 
+//setting view and nunjuks configuration
 app.set('view engine', 'html')
 nunjucks.configure('views', {
     autoescape : false,
@@ -27,16 +22,16 @@ nunjucks.configure('views', {
 })
 
 app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
+//setting static files
 app.use('/static',express.static(__dirname + '/public'))
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+//requiring routes
+require('./routes')(app)
 
-require('./routes/index')(app)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,7 +41,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'production' ? err : {};
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);

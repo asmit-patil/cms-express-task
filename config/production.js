@@ -1,6 +1,6 @@
 var production = {
     server: {   
-        port : '4000'
+        port : '7000'
     }  
 }
 module.exports = production
