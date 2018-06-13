@@ -1,5 +1,5 @@
 var express = require('express')
-var router = express.Router();
+var router = express.Router()
 var content = require('../models/contentstack')
 
 router.get('/', function (req, res) {
@@ -9,10 +9,10 @@ router.get('/', function (req, res) {
             .spread(function success(result) {
                 res.render('contactus', {
                     entry: result[0],
-                });
+                })
             }, function error(error) {
-                next(error);
-    });
+                next(error)
+    })
     })
 
 module.exports = router

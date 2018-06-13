@@ -1,5 +1,5 @@
 var express = require('express')
-var router = express.Router();
+var router = express.Router()
 var content = require('../models/contentstack')
 
 
@@ -10,10 +10,10 @@ var Query = content.Stack.ContentType('home').Query()
         .spread(function success(result) {
             res.render('home', {
                 entry: result[0],
-            });
+            })
         }, function error(error) {
-            next(error);
-});
+            next(error)
+})
 })
 
 module.exports = router
