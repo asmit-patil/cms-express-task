@@ -4,4 +4,3 @@ exports.Stack = Contentstack.Stack(config.apikey, config.accesstoken, config.env
 
 
 
-//module.exports.Stack = Stack

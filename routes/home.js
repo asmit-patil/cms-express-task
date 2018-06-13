@@ -4,7 +4,7 @@ var content = require('../models/contentstack')
 
 
 router.get('/', function (req, res) {
-var Query = content.Stack.ContentType('home').Query()
+content.Stack.ContentType('home').Query()
         .toJSON()
         .find()
         .spread(function success(result) {
