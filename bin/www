@@ -9,7 +9,7 @@ var debug = require('debug')('cms-project:server')
 var http = require('http')
 var mode = require('config')
 
-port = mode.get('port')
+port = process.env.PORT  || mode.get('port') 
 /**
  * Get port from environment and store in Express.
  */
