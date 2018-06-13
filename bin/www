@@ -7,13 +7,8 @@
 var app = require('../app')
 var debug = require('debug')('cms-project:server')
 var http = require('http')
-var env = process.env.NODE_ENV 
 var mode = require('config')
-// if( (env != "null") && ((env == "production") || (env == "staging")) ){
-//    port = mode.get('port')
-// }else{
-//     port = 5000
-// }
+
 port = mode.get('port')
 /**
  * Get port from environment and store in Express.
