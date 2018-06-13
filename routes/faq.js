@@ -7,6 +7,7 @@ router.get('/', function (req, res) {
             .toJSON()
             .find()
             .spread(function success(result) {
+                console.log(result[0])
                 res.render('faq', {
                     entry: result[0],
                 })
