@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var app = express()
 
-router.get('*', require('./load_partials'));
+app.use('*', require('./partials'))
 
-module.exports = router;
+module.exports = app

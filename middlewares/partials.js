@@ -1,7 +1,7 @@
-var async = require('async');
+var async = require('async')
 var Contentstack = require('contentstack')
 var config = require('../config/constants')
-const Stack = Contentstack.Stack(config.apikey, config.accesstoken, config.enviournment);
+const Stack = Contentstack.Stack(config.apikey, config.accesstoken, config.enviournment)
 
 module.exports = function (req, res, next) {
 
@@ -12,9 +12,9 @@ module.exports = function (req, res, next) {
 				.toJSON()
 				.find()
 				.spread(function success(result) {
-					callback(null, result[0]);
+					callback(null, result[0])
 				}, function error(error) {
-					callback(error);
+					callback(error)
 				})
 		},
 		function (callback) {
@@ -23,14 +23,14 @@ module.exports = function (req, res, next) {
 				.toJSON()
 				.find()
 				.spread(function success(result) {
-					callback(null, result[0]);
+					callback(null, result[0])
 				}, function error(error) {
-					callback(error);
+					callback(error)
 				})
 		}], function (error, success) {
-			if (error) return next(error);
-			res.locals.header = success[0];
-			res.locals.footer = success[1];
-			next();
+			if (error) return next(error)
+			res.locals.header = success[0]
+			res.locals.footer = success[1]
+			next()
 		})
 };
