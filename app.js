@@ -5,14 +5,6 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var app = express()
 var nunjucks = require('nunjucks')
-// var env = process.env.NODE_ENV 
-// var mode, port
-// if( (env != "null") && ((env == "production") || (env == "development")) ){
-//    mode = require('./config/' + env)
-//    port = mode.server.port
-// }else{
-//     port = 5000
-// }
 
 //setting view and nunjuks configuration
 app.set('view engine', 'html')

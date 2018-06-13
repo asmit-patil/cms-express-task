@@ -1,7 +1,7 @@
 {
-    "staging" : {
-          
-            "port" : 7000
+  
+    "enviournment" : "staging",
+    "port" : 8000
          
-    }
+    
 } 
