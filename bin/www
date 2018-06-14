@@ -7,14 +7,16 @@
 var app = require('../app')
 var debug = require('debug')('cms-project:server')
 var http = require('http')
-var mode = require('config')
+var config = require('config')
+//var config = require('config-node')();
+console.log(config.get('port'))
 
-port = process.env.PORT  || mode.get('port') 
+
 /**
  * Get port from environment and store in Express.
  */
 
-//var port = normalizePort(process.env.PORT || '3000')
+port = normalizePort(process.env.PORT || config.get('port'))
 app.set('port', port)
 
 /**

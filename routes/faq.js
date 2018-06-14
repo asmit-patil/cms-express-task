@@ -1,9 +1,9 @@
 var express = require('express')
 var router = express.Router()
-var content = require('../models/contentstack')
+var Stack = require('../models/contentstack')
 
 router.get('/', function (req, res) {
-    var Query = content.Stack.ContentType('faq').Query()
+    Stack.ContentType('faq').Query()
             .toJSON()
             .find()
             .spread(function success(result) {
