@@ -3,17 +3,18 @@
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+                
                 <div class="item active">
-                    <img src="{{entry.slider.slider_images[0].url}}" width="100%" height="500px">
-                </div>
-              
+                    <img src="{{entry.slider.slider_images[0].url}}"  height="500px">
+                </div> 
+                {% for entry in entry.slider.slider_images %}
                 <div class="item">
-                    <img src="{{entry.slider.slider_images[1].url}}"  height="500px">
+                    <img src="{{entry.url}}" width="100%" height="500px">
                 </div>
-                  
-                <div class="item">
-                    <img src="{{entry.slider.slider_images[2].url}}"  height="500px" >
-                </div>
+                {% else %}
+                    <li>This would display if the 'item' collection were empty</li>
+                {% endfor %}
+               
                
             </div>
               
@@ -32,23 +33,15 @@
     <div class="main-gallery container"> 
         <h3>{{entry.testimonial}}</h3>
         <div class="flexgallery">
+            {% for entry in entry.person %}
             <div class="gallery">
-                    <img  src="{{entry.person[0].person_img.url}}" class="testimony-img" />  <p class="tetimony">{{entry.person[0].person_description}}</p>
-                <p class="testimony-url">  <a  href="{{entry.person[0].person_link.href}}">{{entry.person[0].person_link.title}}</a></p>
+                    <img  src="{{entry.person_img.url}}" class="testimony-img" />  <p class="tetimony">{{entry.person_description}}</p>
+                <p class="testimony-url">  <a  href="{{entry.person_link.href}}">{{entry.person_link.title}}</a></p>
             </div> 
-            <div class="gallery">
-                    <img src="{{entry.person[1].person_img.url}}" class="testimony-img" /> <p class="tetimony"> {{entry.person[1].person_description}}</p>
-                    <p class="testimony-url">  <a  href="{{entry.person[1].person_link.href}}">{{entry.person[1].person_link.title}}</a></p>
-            </div>
-            <div class="gallery">
-                    <img src="{{entry.person[2].person_img.url}}" class="testimony-img" /><p class="tetimony"> {{entry.person[2].person_description}}</p>
-                    <p class="testimony-url">  <a  href="{{entry.person[2].person_link.href}}">{{entry.person[2].person_link.title}}</a></p>
-            </div>
-            <div class="gallery">
-                    <p class="tetimony"><img src="{{entry.person[3].person_img.url}}" class="testimony-img" /> {{entry.person[3].person_description}}</p>
-                    <p class="testimony-url">  <a  href="{{entry.person[3].person_link.href}}">{{entry.person[3].person_link.title}}</a></p>
-            </div>
-           </div>
+            {% else %}
+                    <li>This would display if the 'item' collection were empty</li>
+            {% endfor %}
+        </div>
     </div> 
     
 {% endblock %}   

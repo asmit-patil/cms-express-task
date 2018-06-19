@@ -1,11 +1,11 @@
 
    
         <div class="header-container">
-            <a href="{{header.navbar[0].href}}"> <img class="logo" src="{{header.logo.url}}" width="100px" /></a>
+            <a href="{{partials.header.navbar[0].href}}"> <img class="logo" src="{{partials.header.logo.url}}" width="100px" /></a>
             <div class="nav">  
                    <ul>
-                    {% for entry in header.navbar %}
-                        <li><a href="{{ entry.href }}">{{ entry.title }}</a</li>
+                    {% for entry in partials.header.navbar %}
+                        <li><a href="{{ entry.href }}">{{ entry.title }}</a></li>
                     {% else %}
                         <li>This would display if the 'item' collection were empty</li>
                     {% endfor %}

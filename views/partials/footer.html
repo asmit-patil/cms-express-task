@@ -5,15 +5,11 @@
         </div> 
        <div class="space">
             <div class="sidenav">
-                <a href="{{partials.footer.vertical_navbar[0].href}}">{{partials.footer.vertical_navbar[0].title}}</a>
-                <a href="{{partials.footer.vertical_navbar[1].href}}">{{partials.footer.vertical_navbar[1].title}}</a>
-                <button class="dropdown-btn" onclick="showlist();">{{partials.footer.vertical_navbar[2].title}}<i class="fa fa-caret-down"></i> </button>
-                <div class="dropdown-container">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <a href="{{partials.footer.vertical_navbar[3].href}}">{{partials.footer.vertical_navbar[3].title}}</a>
+            {% for entry in partials.footer.vertical_navbar %}
+                <a href="{{entry.href}}">{{entry.title}}</a>
+            {% else %}
+                    <li>This would display if the 'item' collection were empty</li>
+            {% endfor %}
             
             </div>
         </div>
