@@ -1,0 +1,10 @@
+{% extends "./layout/parent.html" %}
+
+{% block main_body %} 
+<div style="padding: 60px; margin-top: 60px"> 
+<h1>{{ entry.blog_name.title }} </h1>
+<img src="{{entry.image.url}}"></img>
+<p>{{ entry.description }}</p>
+<h4>{{ entry.author }}</h4>
+</div>
+{% endblock %}

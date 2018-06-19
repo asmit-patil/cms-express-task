@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
         .toJSON()
         .find()
         .spread(function success(result) {
-            console.log(result[0])
+            
             res.render('home', {
                 entry: result[0],
             })
